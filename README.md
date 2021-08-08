@@ -2,9 +2,9 @@
 
 
 Skeletion Includes:
-# Basic login and register system
-# Twig Templating Engine
-# CSRF Auth Applied on Forms
+- Basic login and register system
+- Twig Templating Engine
+- CSRF Auth Applied on Forms
 
 
 
