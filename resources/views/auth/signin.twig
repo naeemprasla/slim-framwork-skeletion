@@ -1,0 +1,45 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+<form method="post" action="{{ path_for('auth.signin') }}" autocomplete="off">
+    <div class="row py-5">
+        <div class="col-md-3">
+
+            <h4>Sign Up</h4>
+            <div class="form-group {{ errors.email ? 'has-error' : '' }}">
+                <input type="email" name="email" value="{{ old.email }}" id="email" placeholder="Your Email" class="form-control" />
+                {% if errors.email %}
+                <span class="help-block">{{ errors.email | first }}</span>
+                {% endif %}
+            </div>
+           
+            <div class="form-group {{ errors.password ? 'has-error' : '' }}">
+                <input type="password" name="password" value="{{ old.password }}" id="password" placeholder="Password" class="form-control" />
+                {% if errors.password %}
+                <span class="help-block">{{ errors.password | first }}</span>
+                {% endif %}
+            </div>
+           
+            {{ csrf.field | raw }}
+            <button type="submit" class="btn btn-primary" >signin</button>
+
+
+        </div>
+        <div class="col-md-7">
+            <table class="table">
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.password }}</td>
+                </tr>
+                
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
